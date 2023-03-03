@@ -52,6 +52,18 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    put '/skills/update/:id' do
+      begin
+      data = JSON.parse(request.body.read)
+      skill_id = params[:id].to_i
+      skill=Skill.find(skill_id)
+      skill.update(data)
+      {message:"skill updated successfully"}.to_json
+      rescue => e
+        [422,{error:e.message}.to_json]
+      end
+    end
+
   
   
 end
