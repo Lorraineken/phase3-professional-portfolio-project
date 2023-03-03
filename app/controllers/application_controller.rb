@@ -29,6 +29,11 @@ class ApplicationController < Sinatra::Base
         }.to_json]
       end
     end
+
+    get '/projects' do
+      project = Project.all 
+      [200,project.to_json]
+    end
   
   end
   
