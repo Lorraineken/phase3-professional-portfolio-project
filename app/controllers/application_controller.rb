@@ -34,6 +34,11 @@ class ApplicationController < Sinatra::Base
       project = Project.all 
       [200,project.to_json]
     end
+
+    get '/skills' do 
+      skill = Skill.all 
+      [200,skill.to_json]
+    end
   
   end
   
