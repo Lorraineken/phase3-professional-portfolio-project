@@ -10,11 +10,23 @@ class ApplicationController < Sinatra::Base
       data = JSON.parse(request.body.read)
       begin
       project = Project.create(data)
-      project.to_json
+      [201,project.to_json]
       rescue => e 
-        {
+        [422,{
           error:"An error occured while creating a new project"
-        }
+        }.to_json]
+      end
+    end
+
+    post '/skills/create' do 
+      data = JSON.parse(request.body.read)
+      begin
+        skill = Skill.create(data)
+        [201,skill.to_json]
+      rescue => e 
+        [422,{
+        error:"An error occured while creating a new skill"
+        }.to_json]
       end
     end
   
