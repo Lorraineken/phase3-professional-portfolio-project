@@ -63,7 +63,28 @@ class ApplicationController < Sinatra::Base
         [422,{error:e.message}.to_json]
       end
     end
+ 
+    delete '/skills/destroy/:id' do
+      begin
+      skill_id = params[:id].to_i
+      skill=Skill.find(skill_id)
+      skill.destroy
+      {message:"skill deleted successfully"}.to_json
+      rescue => e
+        [422,{error:e.message}.to_json]
+      end
+    end
 
+    delete '/projects/destroy/:id' do
+      begin
+      project_id = params[:id].to_i
+      project=Project.find(project_id)
+      project.destroy
+      {message:"Project deleted successfully"}.to_json
+      rescue => e
+        [422,{error:e.message}.to_json]
+      end
+    end
   
   
 end
