@@ -2,8 +2,15 @@ class ApplicationController < Sinatra::Base
     set :default_content_type, 'application/json'
     
     # Add your routes here
-    get "/" do
-      { message: "Good luck with your project!" }.to_json
+    post "/login" do
+      request.body.rewind
+      data = JSON.parse(request.body.read)
+      user = User.find_by(email:data["email"],password:data["password"])
+      if user
+        { success: true }.to_json
+      else
+        { success: false }.to_json
+      end
     end
 
     post '/projects/create' do
@@ -38,6 +45,11 @@ class ApplicationController < Sinatra::Base
     get '/skills' do 
       skill = Skill.all 
       [200,skill.to_json]
+    end
+
+    get '/users' do 
+      user = User.all 
+      [200,user.to_json]
     end
 
     put '/projects/update/:id' do
@@ -85,6 +97,8 @@ class ApplicationController < Sinatra::Base
         [422,{error:e.message}.to_json]
       end
     end
+
+
   
   
 end
