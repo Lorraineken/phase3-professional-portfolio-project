@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
       data = JSON.parse(request.body.read)
       user = User.find_by(email:data["email"],password:data["password"])
       if user
-        {success: true,user_id:user.id}.to_json
+        {success: true,user_id:user.id,user_name:user.full_name}.to_json
       else
         { success: false }.to_json
       end
