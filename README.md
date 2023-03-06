@@ -4,9 +4,15 @@ Professional Portfolio is a basic API built with ruby's Sinatra DSL.
 
 This project is a server side application which contains users data i.e. the users personal details such as full name ,email,password and education level. Each user has skills and projects.
 
-There are two models of one-to-many relationship. One user has many skills an projects as displayed in the ERD diagram below
+There are two models of one-to-many relationship. One user has many skills and projects as displayed in the ERD diagram below
 
  ![ERD DIAGRAM](./user-skill-project-ERD.png?raw=true "ERD DIAGRAM")
+
+Below is a link to the frontend application built using this API.
+
+
+   https://github.com/Lorraineken/professional-portfolio-react-app
+   
 
 ## Pre-Requisites
 In order to use this repository you will need the following:
