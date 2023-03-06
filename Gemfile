@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "activerecord", "~> 6.1"
 
+ruby '2.7.4'
 
 gem "sinatra-activerecord"
 
