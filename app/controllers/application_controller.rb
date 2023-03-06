@@ -12,6 +12,18 @@ class ApplicationController < Sinatra::Base
         { success: false }.to_json
       end
     end
+    
+    post '/users/create' do
+      data = JSON.parse(request.body.read)
+      begin
+      user = User.create(data)
+      [201,user.to_json]
+      rescue => e 
+        [422,{
+          error:"An error occured while creating a new user"
+        }.to_json]
+      end
+    end
 
     post '/projects/create' do
       data = JSON.parse(request.body.read)
