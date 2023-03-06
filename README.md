@@ -43,10 +43,8 @@ You can setup this repository by following this manual
     ```{shell}
     rackup config.ru
     ```
-4. Open the application from your browser
-    ```
-   https://localhost:9292
-   ```
+4. Use any API platform such as postman to interact with the APIs.
+   
    
 ## Application
 This application is a simple web API that allows users to:
